@@ -13,42 +13,30 @@
 </head>
 <body>
     <div class="container pt-3">
-         <h3>Welcome to the Django project</h3>
+         <h3>Employee List</h3>
         <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">S.no</th>
+      <th scope="col">FULL NAME</th>
+      <th scope="col">DESIGNATION</th>
+      <th scope="col">PHONE NUMBER</th>
     </tr>
   </thead>
   <tbody>
+    {% for emp in employees %}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th> {{ forloop.counter }}</th>
+      <td>{{ emp.first_name }} {{ emp.last_name }}</td>
+      <td>{{ emp.designation }}</td>
+      <td>{{ emp.phone_number }}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>John</td>
-      <td>Doe</td>
-      <td>@social</td>
-    </tr>
+    {% endfor %}
+   
   </tbody>
 </table>
-    <img src="{% static 'images/cr7image.jpg' %}" alt="" width = "300px" height = "400px">
     </div>
-    {% for i in employees %}
-        <h2>{{i}}</h2>
-    {% endfor %}
+    
 
 </body>
 </html>
