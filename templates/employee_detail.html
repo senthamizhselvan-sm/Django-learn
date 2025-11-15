@@ -12,31 +12,19 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container pt-3">
-         <h3>Employee List</h3>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">S.no</th>
-      <th scope="col">FULL NAME</th>
-      <th scope="col">DESIGNATION</th>
-      <th scope="col">PHONE NUMBER</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for emp in employees %}
-    <tr>
-      <th> {{ forloop.counter }}</th>
-      <td><a href = '{% url "employee_detail" emp.pk %}'>{{emp.first_name}} {{emp.last_name}}</a></td>
-      <td>{{ emp.designation }}</td>
-      <td>{{ emp.phone_number }}</td>
-    </tr>
-    {% endfor %}
-   
-  </tbody>
-</table>
-    </div>
-    
 
+    <div class="container pt-3 ">
+      <div class="card mx-auto" style="width: 18rem;">
+        <img class="card-img-top" src="{{ employee.image.url}}" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">{{ employee.first_name }} {{ employee.last_name }}</h5>
+        <p class="card-text">{{ employee.designation }}</p>
+        <p class="card-text">{{ employee.email }}</p>
+        <p class="card-text">{{ employee.phone_number }}</p>
+      </div>
+         <a href="{% url 'home' %}" class="btn btn-primary">Back To Home</a>
+    </div>
+
+    </div>
 </body>
 </html>
